@@ -4,25 +4,12 @@ This test plan covers the current business logic of the COBOL application and is
 
 | Test Case ID | Test Case Description | Pre-conditions | Test Steps | Expected Result | Actual Result | Status (Pass/Fail) | Comments |
 |--------------|-----------------------|----------------|------------|-----------------|---------------|--------------------|----------|
-| TC-001 | View current account balance | Application is running | 1. Start the application
-2. Select menu option `1` | The application reads the stored balance and displays the current balance value | | | | Should display starting balance `1000.00` on first run |
-| TC-002 | Credit account with a positive amount | Application is running, current balance known | 1. Start the application
-2. Select menu option `2`
-3. Enter credit amount `200.00` | The application reads current balance, adds credit amount, writes updated balance, and displays new balance | | | | Balance should increase by the credited amount |
-| TC-003 | Debit account with sufficient funds | Application is running, current balance >= debit amount | 1. Start the application
-2. Select menu option `3`
-3. Enter debit amount `150.00` | The application reads current balance, verifies available funds, subtracts debit amount, writes updated balance, and displays new balance | | | | Balance should decrease by the debited amount |
-| TC-004 | Debit account with insufficient funds | Application is running, current balance < debit amount | 1. Start the application
-2. Select menu option `3`
-3. Enter debit amount greater than current balance | The application reads current balance, detects insufficient funds, does not update balance, and displays an error message | | | | Balance should remain unchanged and error message shown |
-| TC-005 | Reject invalid menu selection | Application is running | 1. Start the application
-2. Enter an invalid option such as `5` or `0` | The application displays `Invalid choice, please select 1-4.` and returns to the menu | | | | No operation should be performed and the menu should continue |
-| TC-006 | Exit application cleanly | Application is running | 1. Start the application
-2. Select menu option `4` | The application terminates with an exit message `Exiting the program. Goodbye!` | | | | Application should stop running without error |
+| TC-001 | View current account balance | Application is running | 1. Start the application<br>2. Select menu option `1` | The application reads the stored balance and displays the current balance value | | | | Should display starting balance `1000.00` on first run |
+| TC-002 | Credit account with a positive amount | Application is running, current balance known | 1. Start the application<br>2. Select menu option `2`<br>3. Enter credit amount `200.00` | The application reads current balance, adds credit amount, writes updated balance, and displays new balance | | | | Balance should increase by the credited amount |
+| TC-003 | Debit account with sufficient funds | Application is running, current balance >= debit amount | 1. Start the application<br>2. Select menu option `3`<br>3. Enter debit amount `150.00` | The application reads current balance, verifies available funds, subtracts debit amount, writes updated balance, and displays new balance | | | | Balance should decrease by the debited amount |
+| TC-004 | Debit account with insufficient funds | Application is running, current balance < debit amount | 1. Start the application<br>2. Select menu option `3`<br>3. Enter debit amount greater than current balance | The application reads current balance, detects insufficient funds, does not update balance, and displays an error message | | | | Balance should remain unchanged and error message shown |
+| TC-005 | Reject invalid menu selection | Application is running | 1. Start the application<br>2. Enter an invalid option such as `5` or `0` | The application displays `Invalid choice, please select 1-4.` and returns to the menu | | | | No operation should be performed and the menu should continue |
+| TC-006 | Exit application cleanly | Application is running | 1. Start the application<br>2. Select menu option `4` | The application terminates with an exit message `Exiting the program. Goodbye!` | | | | Application should stop running without error |
 | TC-007 | Starting balance default | Application is started fresh | 1. Start the application | The application uses a default account balance of `1000.00` when the program begins | | | | Confirms initial business rule for default balance |
-| TC-008 | Data persistence within runtime | Application is running and multiple operations are performed | 1. Start the application
-2. Select option `2`, credit `100.00`
-3. Select option `1` to view balance | The displayed balance reflects the credited amount within the same runtime session | | | | Runtime storage must preserve updated balance for later operations |
-| TC-009 | Data update after debit success | Application is running and balance is sufficient | 1. Start the application
-2. Select option `3`, debit `50.00`
-3. Select option `1` to view balance | The displayed balance reflects the debited amount after the debit operation | | | | Confirms write-back behavior after a debit |
+| TC-008 | Data persistence within runtime | Application is running and multiple operations are performed | 1. Start the application<br>2. Select option `2`, credit `100.00`<br>3. Select option `1` to view balance | The displayed balance reflects the credited amount within the same runtime session | | | | Runtime storage must preserve updated balance for later operations |
+| TC-009 | Data update after debit success | Application is running and balance is sufficient | 1. Start the application<br>2. Select option `3`, debit `50.00`<br>3. Select option `1` to view balance | The displayed balance reflects the debited amount after the debit operation | | | | Confirms write-back behavior after a debit |
