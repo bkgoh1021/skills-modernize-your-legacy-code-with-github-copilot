@@ -1,0 +1,15 @@
+{
+  "name": "accounting",
+  "version": "1.0.0",
+  "description": "Node.js port of the legacy COBOL student account system",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
